@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 10m0s
   dependsOn:
-    - name: infrastructure
+    - name: infra-controllers
   retryInterval: 1m
   timeout: 5m
   sourceRef:
