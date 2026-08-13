@@ -19,7 +19,7 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.46.0
-          endFrom:
+          envFrom:
             - secretRef:
                 name: linkding-superuser
           ports:
