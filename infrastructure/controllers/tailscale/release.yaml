@@ -18,4 +18,4 @@ spec:
       retries: 3
   values:
     operatorConfig:
-      hostname: k3s-staging
+      hostname: k3s-homelab
