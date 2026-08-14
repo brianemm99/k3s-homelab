@@ -4,3 +4,4 @@ namespace: linkding
 resources:
   - ../../base/linkding/
   - linkding-superuser.sops.yaml
+  - ingress.yaml
