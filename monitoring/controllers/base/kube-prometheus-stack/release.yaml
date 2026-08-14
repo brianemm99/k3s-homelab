@@ -31,3 +31,10 @@ spec:
   values:
     grafana:
       adminPassword: mischa
+      ingress:
+        enabled: true
+        ingressClassName: tailscale
+
+        tls:
+          - hosts:
+              - grafana
