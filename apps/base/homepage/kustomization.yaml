@@ -6,4 +6,16 @@ resources:
   - rbac.yaml
   - deployment.yaml
   - service.yaml
-  - configmap.yaml
+
+configMapGenerator:
+  - name: homepage
+    files:
+      - config/settings.yaml
+      - config/services.yaml
+      - config/bookmarks.yaml
+      - config/widgets.yaml
+      - config/kubernetes.yaml
+      - config/proxmox.yaml
+      - config/docker.yaml
+      - config/custom.css
+      - config/custom.js
