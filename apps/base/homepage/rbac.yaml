@@ -22,8 +22,9 @@ rules:
     verbs:
       - get
       - list
-  # - apiGroups:
-    #  - traefik.io
+  - apiGroups:
+      - extensions
+      - networking.k8s.io
     resources:
       - ingressroutes
     verbs:
