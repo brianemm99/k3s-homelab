@@ -57,3 +57,4 @@ data:
         provider: brave
         target: _blank
   docker.yaml: ""
+  proxmox.yaml: ""
