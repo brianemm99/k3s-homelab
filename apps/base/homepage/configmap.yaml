@@ -69,9 +69,6 @@ data:
         - Excalidraw:
             href: https://excalidraw.com/
             description: whiteboard
-        - Fonts:
-            - Nerd Font Icons:
-                href: https://www.nerdfonts.com/cheat-sheet
 
 
   widgets.yaml: |
