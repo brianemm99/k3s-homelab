@@ -2,7 +2,6 @@
     cluster:
       show: true
       cpu: true
-      cputemp: true
       memory: true
       showLabel: true
       label: "cluster"
@@ -10,15 +9,13 @@
       show: true
       cpu: true
       memory: true
-      disk: /host
       showLabel: true
-      label: "NAS"
 - search:
     provider: brave
     focus: true
     showSearchSuggestions: true
     target: _blank
-- date-time:
+- datetime:
     text_size: 2xl
     format:
       timeStyle: short

@@ -1,30 +1,36 @@
 - OS Docs:
     - Arch:
         - abbr: Arch
-          icon: arch.png
+          icon: arch-linux.png
           href: https://wiki.archlinux.org/title/Main_page
     - Hyprland:
         - abbr: Hypr
-          icon: hypland.png
+          icon: hyprland.png
           href: https://wiki.hypr.land/
     - Quickshell:
         - abbr: QS
           icon:  quickshhell.png
           href: https://quickshell.org/
 
-- Kubernetes Ext:
+- Dev Docs:
     - Helm:
         - icon: helm.png
           href: https://helm.sh/docs/
-    - Cloudflare:
-        - icon: cloudflare.png
-          href: https://developers.cloudflare.com/tunnel/downloads/
-    - Digital Ocean:
-        - icon: digitalocean.png
-          href: https://docs.digitalocean.com/products/
     - Terraform:
         - icon: terraform.png
-          href: https://developer.hashicorp.com/terraform
+					href: https://developer.hashicorp.com/terraform
+    - Digital Ocean:
+        - icon: digitalocean-light.png
+          href: https://docs.digitalocean.com/products/
+    - Podman:
+        - icon: podman.png
+          href: https://docs.podman.io/en/latest/
+    - Docker:
+        - icon: docker.png
+          href: https://app.docker.com/
+		- Cloudflare:
+        - icon: cloudflare.png
+          href: https://developers.cloudflare.com/tunnel/downloads/
 
 - Media:
     - Youtube:
@@ -33,34 +39,27 @@
 
 - AI:
     - Claude:
-        - icon: claude.png
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/claude.png
           href: https://claude.ai/recents
     - PI:
-        - icon: pi.png
+        - icon: pi-coding-agent.png
           href: https://pi.dev/
           description: pi coding agent
     - Hermes:
-        - icon: hermes.png
+        - icon: hermes-agent.png
           href: https://hermes-agent.nousresearch.com/docs
           description: hermes coding agent
     - Odysseus AI:
         - icon: odysseus.png
           href: https://odysseusai.dev/
           description: odysseus coding agent
-    - Grok:
-        - icon: grok.png
-          href: https://grok.com/
-    - Gippity:
-        - icon: gpt.png
-          href: https://chatgpt.com/
-          description: GPT
 
 - Learning:
     - KubeCraft:
-        - icon: gear.png
+        - icon: kubernetes-dashboard.png
           href: https://www.skool.com/kubecraft
     - Boot.Dev:
-        - icon: dev.png
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/brave-dev.png
           href: https://www.boot.dev/dashboard
 
 - Coding:
