@@ -3,13 +3,14 @@
         - abbr: Arch
           icon: arch-linux.png
           href: https://wiki.archlinux.org/title/Main_page
+          description: Wiki
     - Hyprland:
         - abbr: Hypr
           icon: hyprland.png
           href: https://wiki.hypr.land/
+          description: Wiki
     - Quickshell:
         - abbr: QS
-          icon:  quickshhell.png
           href: https://quickshell.org/
 
 - Dev Docs:
@@ -32,11 +33,6 @@
         - icon: cloudflare.png
           href: https://developers.cloudflare.com/tunnel/downloads/
 
-- Media:
-    - Youtube:
-        - icon: youtube.png
-          href: https://www.youtube.com/
-
 - AI:
     - Claude:
         - icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/claude.png
@@ -46,7 +42,7 @@
           href: https://pi.dev/
           description: pi coding agent
     - Hermes:
-        - icon: hermes-agent.png
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/hermes-agent.png
           href: https://hermes-agent.nousresearch.com/docs
           description: hermes coding agent
     - Odysseus AI:
