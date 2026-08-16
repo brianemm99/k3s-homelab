@@ -11,3 +11,17 @@
 #information-widgets {
   color: rgb(203 213 225);
 }
+
+/* shrink the search bar and push it right */
+#information-widgets div:has(input[type="text"]) {
+  flex: 0 1 320px;
+  margin-left: auto;
+  order: 3;
+}
+
+/* center the clock */
+#information-widgets div:has(#datetime) {
+  flex: 1 1 auto;
+  text-align: center;
+  order: 2;
+}
