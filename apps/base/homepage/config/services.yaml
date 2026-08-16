@@ -35,7 +35,12 @@
         icon: codeberg.png
         href: https://codeberg.org/
 
-- Media:
+- Content:
     - Youtube:
         icon: youtube.png
         href: https://www.youtube.com/
+    - KubeCraft:
+        - icon: kubernetes-dashboard.png
+          href: https://www.skool.com/kubecraft
+    - Boot.Dev:
+        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/brave-dev.png

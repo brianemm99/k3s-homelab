@@ -10,6 +10,7 @@ layout:
   Homelab:
     style: row
     columns: 3
+    header: false
   Kubernetes Docs:
     style: row
     columns: 3
@@ -18,7 +19,23 @@ layout:
     style: row
     columns: 2
     header: false
-  Media:
+  Content:
     style: row
-    columns: 1
+    columns: 3
+    header: false
+  AI:
+    style: row
+    columns: 4
+    header: false
+  Dev Docs:
+    style: row
+    columns: 3
+    header: false
+  OS Docs:
+    style: row
+    columns: 3
+    header: false
+  Coding:
+    style: row
+    columns: 2
     header: false

@@ -50,14 +50,6 @@
           href: https://odysseusai.dev/
           description: odysseus coding agent
 
-- Learning:
-    - KubeCraft:
-        - icon: kubernetes-dashboard.png
-          href: https://www.skool.com/kubecraft
-    - Boot.Dev:
-        - icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/brave-dev.png
-          href: https://www.boot.dev/dashboard
-
 - Coding:
     - Python:
         - icon: python.png
