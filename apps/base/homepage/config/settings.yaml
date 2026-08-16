@@ -1,2 +1,8 @@
-  theme: dark
-  color: zinc
+theme: dark
+color: zinc
+
+background:
+  image: /images/moon-ocean-orange.jpg
+
+cardBlur: lg
+

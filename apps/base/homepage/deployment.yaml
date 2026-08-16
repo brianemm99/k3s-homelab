@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: homepage
-  namespace: default
   labels:
     app.kubernetes.io/name: homepage
 spec:
@@ -83,9 +82,14 @@ spec:
             - mountPath: /app/config/proxmox.yaml
               name: homepage-config
               subPath: proxmox.yaml
+            - mountPath: /app/public/images
+              name: images
       volumes:
         - name: homepage-config
           configMap:
             name: homepage
         - name: logs
           emptyDir: {}
+        - name: images
+          configMap:
+            name: homepage-images

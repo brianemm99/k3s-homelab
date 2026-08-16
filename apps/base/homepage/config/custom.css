@@ -1,0 +1,13 @@
+/* charcoal tint behind the frosted cards */
+.services-group,
+.bookmark-group,
+#information-widgets {
+  background-color: rgb(24 24 27 / 0.55);
+}
+
+/* brighter gray text, not white */
+.services-group,
+.bookmark-group,
+#information-widgets {
+  color: rgb(203 213 225);
+}

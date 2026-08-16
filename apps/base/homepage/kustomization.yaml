@@ -19,3 +19,6 @@ configMapGenerator:
       - config/docker.yaml
       - config/custom.css
       - config/custom.js
+  - name: homepage-images
+    files:
+      - images/moon-ocean-orange.jpg
