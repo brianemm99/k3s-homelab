@@ -18,7 +18,7 @@
           href: https://helm.sh/docs/
     - Terraform:
         - icon: terraform.png
-					href: https://developer.hashicorp.com/terraform
+          href: https://developer.hashicorp.com/terraform
     - Digital Ocean:
         - icon: digitalocean-light.png
           href: https://docs.digitalocean.com/products/
