@@ -14,11 +14,11 @@ spec:
             - name: renovate
               image: renovate/renovate:latest
               args:
-                - mischavandenburg/pi-cluster
+                - brianemm99/k3s-homelab
 
               envFrom:
                 - secretRef:
-                    name: renovate-container-env
+                    name: renovate-container
                 - configMapRef:
                     name: renovate-configmap
 
