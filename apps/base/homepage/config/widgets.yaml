@@ -1,3 +1,5 @@
+- logo:
+    icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/amd-light.png
 - kubernetes:
     cluster:
       show: true
@@ -15,6 +17,13 @@
     format:
       timeStyle: short
       hourCycle: h23
+- openmeteo:
+    label: Baltimore
+    latitude: 39.5246
+    longitude: -76.6590
+    timezone: America/NewYork
+    units: imperial
+    cache: 5
 - search:
     provider: brave
     focus: true
