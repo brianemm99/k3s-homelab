@@ -35,6 +35,7 @@
         icon: codeberg.png
         href: https://codeberg.org/
 
-- Youtube:
-    icon: youtube.png
-    href: https://www.youtube.com/
+- Media:
+    - Youtube:
+        icon: youtube.png
+        href: https://www.youtube.com/

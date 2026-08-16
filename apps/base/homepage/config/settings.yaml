@@ -6,3 +6,19 @@ background:
 
 cardBlur: lg
 
+layout:
+  Homelab:
+    style: row
+    columns: 3
+  Kubernetes Docs:
+    style: row
+    columns: 3
+    header: false
+  Git:
+    style: row
+    columns: 2
+    header: false
+  Media:
+    style: row
+    columns: 1
+    header: false
