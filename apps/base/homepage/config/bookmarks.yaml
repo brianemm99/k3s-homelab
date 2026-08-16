@@ -1,4 +1,73 @@
-- Developer:
-    - Github:
-        - abbr: GH
-          href: https://github.com/
+- OS Docs:
+    - Arch:
+        - abbr: Arch
+          icon: arch.png
+          href: https://wiki.archlinux.org/title/Main_page
+    - Hyprland:
+        - abbr: Hypr
+          icon: hypland.png
+          href: https://wiki.hypr.land/
+    - Quickshell:
+        - abbr: QS
+          icon:  quickshhell.png
+          href: https://quickshell.org/
+
+- Kubernetes Ext:
+    - Helm:
+        - icon: helm.png
+          href: https://helm.sh/docs/
+    - Cloudflare:
+        - icon: cloudflare.png
+          href: https://developers.cloudflare.com/tunnel/downloads/
+    - Digital Ocean:
+        - icon: digitalocean.png
+          href: https://docs.digitalocean.com/products/
+    - Terraform:
+        - icon: terraform.png
+          href: https://developer.hashicorp.com/terraform
+
+-Media:
+    - Youtube:
+        - icon: youtube.png
+          href: https://www.youtube.com/
+
+- AI:
+    - Claude:
+        - icon: claude.png
+          href: https://claude.ai/recents
+    - PI:
+        - icon: pi.png
+          href: https://pi.dev/
+          description: pi coding agent
+    - Hermes:
+        - icon: hermes.png
+          href: https://hermes-agent.nousresearch.com/docs
+          description: hermes coding agent
+    - Odysseus AI:
+        - icon: odysseus.png
+          href: https://odysseusai.dev/
+          description: odysseus coding agent
+    - Grok:
+        - icon: grok.png
+          href: https://grok.com/
+    - Gippity:
+        - icon: gpt.png
+          href: https://chatgpt.com/
+          description: GPT
+
+- Learning:
+    - KubeCraft:
+        - icon: gear.png
+          href: https://www.skool.com/kubecraft
+    - Boot.Dev:
+        - icon: dev.png
+          href: https://www.boot.dev/dashboard
+
+- Coding:
+    - Python:
+        - icon: python.png
+          href: https://www.python.org/doc/
+    - Lua:
+        - icon: lua.png
+          href: https://www.lua.org/manual/5.5/
+

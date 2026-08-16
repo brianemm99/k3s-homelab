@@ -1,50 +1,37 @@
 - Homelab:
     - Tailscale:
+        icon: tailscale.png
         href: https://console.tailscale.com
         description: tailnet
     - Grafana:
+        icon: grafana.png
         href: https://grafana.toyger-court.ts.net
         description: Monitoring
     - Linkding:
+        icon: linkding.png
         href: https://linkding.toyger-court.ts.net
         description: Bookmarks
 
 - Kubernetes Docs:
     - Kubernetes Documentation:
+        icon: kubernetes.png
         href: https://kubernetes.io/docs/home/
         description: Kubernetes
     - K3s Docs:
+        icon: k3s.png
         href: https://docs.k3s.io/
         description: K3s
     - Flux Docs:
+        icon: flux.png
         href: https://fluxcd.io/flux/
         description: FluxCD
 
 - Git:
     - GitHub:
+        icon: github-light.png
         href: https://github.com/brianemm99
         description: github
     - Codeberg:
+        icon: codeberg.png
         href: https://codeberg.org/
-- AI:
-    - Claude:
-        href: https://claude.ai/recents
-    - PI:
-        href: https://pi.dev/
-        description: pi coding agent
-    - Hermes:
-        href: https://hermes-agent.nousresearch.com/docs
-        description: hermes coding agent
-    - Odysseus AI:
-        href: https://odysseusai.dev/
-        description: odysseus coding agent
-    - Grok:
-        href: https://grok.com/
-    - Gippity:
-        href: https://chatgpt.com/
-        description: GPT
 
-- Tools:
-    - Excalidraw:
-        href: https://excalidraw.com/
-        description: whiteboard

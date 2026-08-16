@@ -84,6 +84,9 @@ spec:
               subPath: proxmox.yaml
             - mountPath: /app/public/images
               name: images
+            - mountPath: /host
+              name: host-root
+              readOnly: true
       volumes:
         - name: homepage-config
           configMap:
@@ -93,3 +96,7 @@ spec:
         - name: images
           configMap:
             name: homepage-images
+        - name: host-root
+          hostpath:
+            path: /
+            type: directory
