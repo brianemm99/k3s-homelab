@@ -12,10 +12,3 @@
   color: rgb(203 213 225);
 }
 
-
-/* center the clock */
-#information-widgets div:has(#datetime) {
-  flex: 1 1 auto;
-  text-align: center;
-  order: 2;
-}
