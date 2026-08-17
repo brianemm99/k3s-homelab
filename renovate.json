@@ -1,8 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "flux": {
+    "managerFilePatterns": ["infrastructure/**/*.yaml", "apps/**/*.yaml", "clusters/**/*.yaml"]
+  },
   "kubernetes": {
-    "fileMatch": [
-      "\\.yaml$"
-    ]
-  }
+    "managerFilePatterns": ["infrastructure/**/*.yaml", "apps/**/*.yaml"]
+  },
+  "ignorePaths": ["**/*.sops.yaml"]
 }
