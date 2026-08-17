@@ -21,7 +21,7 @@
     label: Baltimore
     latitude: 39.5246
     longitude: -76.6590
-    timezone: America/NewYork
+    timezone: America/New_York
     units: imperial
     cache: 5
 - search:
