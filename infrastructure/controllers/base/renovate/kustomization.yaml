@@ -4,4 +4,4 @@ resources:
   - namespace.yaml
   - configmap.yaml
   - cronjob.yaml
-  - renovate-container.sops.yaml
+  - renovate-container-env.yaml
