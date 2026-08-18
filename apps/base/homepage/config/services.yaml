@@ -11,6 +11,10 @@
         icon: linkding.png
         href: https://linkding.toyger-court.ts.net
         description: Bookmarks
+    - Audiobookshelf:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/audiobookshelf.png
+        href: https://audiobookshelf.toyger-court.ts.net
+        description: Audiobooks
 
 - Kubernetes Docs:
     - Kubernetes Documentation:
