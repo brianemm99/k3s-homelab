@@ -15,6 +15,10 @@
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/audiobookshelf.png
         href: https://audiobookshelf.toyger-court.ts.net
         description: Audiobooks
+    - Mealie:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
+        href: https://mealie.toyger-court.ts.net/g/home
+        description: Recipes
 
 - Kubernetes Docs:
     - Kubernetes Documentation:
