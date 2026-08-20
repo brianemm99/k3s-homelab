@@ -48,9 +48,16 @@
     - Youtube:
         icon: youtube.png
         href: https://www.youtube.com/
+        description: youtube
     - KubeCraft:
         icon: kubernetes-dashboard.png
         href: https://www.skool.com/kubecraft
+        description: Learn Kubernetes
     - Boot.Dev:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/brave-dev.png
         href: https://www.boot.dev/dashboard
+        description: Learn to Code
+    - LinkedIn:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/linkedin.png
+        href: https://www.linkedin.com/feed/
+        description: linkedin
