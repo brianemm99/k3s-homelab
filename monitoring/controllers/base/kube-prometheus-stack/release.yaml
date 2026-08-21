@@ -28,13 +28,7 @@ spec:
       - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
-  values:
-    grafana:
-      adminPassword: mischa
-      ingress:
-        enabled: true
-        ingressClassName: tailscale
-
-        tls:
-          - hosts:
-              - grafana
+  valuesFrom:
+    - kind: ConfigMap
+      name: kube-prometheus-stack-values
+      valuesKey: values.yaml
