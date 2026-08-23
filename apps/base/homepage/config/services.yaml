@@ -21,7 +21,7 @@
         description: Recipes
     - Pi-Hole:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pi-hole.png
-        href: pi-hole.toyger-court.ts.net/admin/
+        href: https://pi-hole.toyger-court.ts.net/admin/
         description: ad-blocker
 
 - Kubernetes Docs:
