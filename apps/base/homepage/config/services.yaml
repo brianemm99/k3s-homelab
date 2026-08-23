@@ -19,6 +19,10 @@
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
         href: https://mealie.toyger-court.ts.net/g/home
         description: Recipes
+    - Pi-Hole:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pi-hole.png
+        href: pi-hole.toyger-court.ts.net/admin/
+        description: ad-blocker
 
 - Kubernetes Docs:
     - Kubernetes Documentation:
