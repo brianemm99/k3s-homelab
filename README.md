@@ -11,7 +11,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 | Control Plane | Ubuntu Server  | 4/4               | 12GB LPDDR5  | 4TB     |
 
 
-### Included Software
+### Software
 ---
 - K3s
 - FluxCD
