@@ -21,7 +21,7 @@ layout:
     header: false
   Content:
     style: row
-    columns: 4
+    columns: 3
     header: false
   AI:
     style: row

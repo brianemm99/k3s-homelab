@@ -32,6 +32,15 @@
     - Cloudflare:
         - icon: cloudflare.png
           href: https://developers.cloudflare.com/tunnel/downloads/
+    - Chezmoi:
+        - abbr: ChM
+          href: https://www.chezmoi.io/
+    - Mise:
+        - abbr: Mise
+          href: https://mise.jdx.dev/
+    - Devsy:
+        - icon: https://cdn.simpleicons.org/developmentcontainers/FFFFFF
+          href: https://devsy.sh/docs/what-is-devsy
 
 - AI:
     - Claude:

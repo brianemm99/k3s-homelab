@@ -28,15 +28,19 @@
     - Kubernetes Documentation:
         icon: kubernetes.png
         href: https://kubernetes.io/docs/home/
-        description: Kubernetes
+        description: Kubernetes Official Docs
     - K3s Docs:
         icon: k3s.png
         href: https://docs.k3s.io/
-        description: K3s
+        description: K3s lightweight cluster
     - Flux Docs:
         icon: flux.png
         href: https://fluxcd.io/flux/
-        description: FluxCD
+        description: FluxCD GitOps
+    - Cilium:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cilium.png
+        href: https://docs.cilium.io/en/stable/overview/intro/
+        description: Cilium & Hubble CNI
 
 - Git:
     - GitHub:
@@ -65,3 +69,11 @@
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/linkedin.png
         href: https://www.linkedin.com/feed/
         description: linkedin
+    - Substack:
+        icon: https://cdn.simpleicons.org/substack/FF6719
+        href: https://substack.com/
+        description: blog
+    - Linux Foundation:
+        icon: https://cdn.simpleicons.org/linuxprofessionalinstitute/FDC300
+        href: https://trainingportal.linuxfoundation.org/learn/dashboard
+        description: Linux Education
