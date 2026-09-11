@@ -37,6 +37,10 @@
         icon: flux.png
         href: https://fluxcd.io/flux/
         description: FluxCD GitOps
+    - Azure:
+        icon: https://cdn.jsdelivr.net/npm/@lobehub/icons-static-png@latest/light/azure-color.png
+        href: https://portal.azure.com
+        description: Azure Cloud
     - Cilium:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cilium.png
         href: https://docs.cilium.io/en/stable/overview/intro/
