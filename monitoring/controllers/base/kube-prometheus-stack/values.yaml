@@ -16,10 +16,20 @@ data:
         tls:
           - hosts:
               - grafana
+      resources:
+        requests: { cpu: 50m, memory: 128Mi }
+        limits:   { memory: 512Mi }
+    prometheusOperator:
+      resources:
+        requests: { cpu: 50m, memory: 128Mi }
+        limits:   { memory: 512Mi }
     prometheus:
       prometheusSpec:
-        retention: 30d
-        retentionSize: 15GiB
+        retention: 21d
+        retentionSize: 10GiB
+        resources:
+          requests: { cpu: 200m, memory: 1Gi }
+          limits:   { memory: 3Gi }
         storageSpec:
           volumeClaimTemplate:
             spec:

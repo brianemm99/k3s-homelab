@@ -4,7 +4,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 
 ### Hardware
 ---
-- Beelink ME mini 6-Slot Home Storage NAS PC Intel® N95
+- Beelink ME mini 6-Slot Home Storage NAS PC Intel® N150
 
 | Use Case      | OS             | CPU Cores/Threads | RAM          | Storage |
 | ------------- | -------------- | ----------------- | ------------ | ------- |
@@ -15,6 +15,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 ---
 - K3s
 - FluxCD
+- Flannel CNI
 - kube-prometheus-stack
 - Tailscale
 - Renovate
