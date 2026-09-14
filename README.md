@@ -28,6 +28,10 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 - Mealie --> recipe manager
 - Audiobookshelf --> audiobook library
 
+### CNI
+---
+- Flannel will be swapped out for Cilium and add Hubble (observability)
+
 ### Updates
 ---
 - FluxCD to reconcile the main branch after pushing to this repo
