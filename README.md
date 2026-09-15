@@ -2,6 +2,11 @@
 ---
 This repo contains files needed to build a lightweight k3s Kubernetes Cluster. The cluster uses GitOps workflow with FluxCD and standard Repository structure. Monitoring is taken care by the kube-prometheus-stack and grafana. Ingress is handled through the Tailscale Kubernetes Operator. Automated image updates are scanned for using the renovate bot and applied through PR's.
 
+*UPCOMING PROJECTS*
+*Cilium CLI to replace Flannel*
+*Local Forgejo Instance in Kubernetes*
+*Add 2 nodes to the cluster*
+
 ### Hardware
 ---
 - Beelink ME mini 6-Slot Home Storage NAS PC Intel® N150
