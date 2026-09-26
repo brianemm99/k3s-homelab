@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - linkding
   - homepage
-  - audiobookshelf
-  - mealie
+  #- audiobookshelf
+  #- mealie
