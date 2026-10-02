@@ -4,7 +4,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 
 #### *UPCOMING PROJECTS*
 - n8n instance on cloudflare
-- *Cilium CLI to replace Flannel*
+- *Cilium CNI to replace Flannel*
 - *Local Forgejo Instance in Kubernetes*
 - *Add 2 nodes to the cluster*
 
