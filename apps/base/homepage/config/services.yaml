@@ -55,7 +55,7 @@
         icon: codeberg.png
         href: https://codeberg.org/
         description: codeberg
-    - Private Forgejo:
+- Forgejo (Private): 
         icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/git.png
         href: https://asgard.toyger-court.ts.net/
         description: Private Forgejo instance
