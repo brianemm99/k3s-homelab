@@ -1,0 +1,13 @@
+{
+  "name": "k3s-admin",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "vscode",
+  "postCreateCommand": "~/.local/bin/mise trust && ~/.local/bin/mise install",
+  "remoteEnv": {
+    "PATH": "/home/vscode/.local/share/mise/shims:/home/vscode/.local/bin:${containerEnv:PATH}",
+    "KUBECONFIG": "/home/vscode/.kube/config"
+  },
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.kube,target=/home/vscode/.kube,type=bind"
+  ]
+}

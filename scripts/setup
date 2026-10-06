@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/local/bin/mise trust /workspaces/k3s-homelab/mise.toml && /usr/local/bin/mise install
+
+

@@ -12,6 +12,7 @@ secrets/
 !.ssh/config
 !.ssh/*.pub
 !.ssh/known_hosts
+kubeconfig
 
 # GPG / cloud / tokens
 .gnupg/
