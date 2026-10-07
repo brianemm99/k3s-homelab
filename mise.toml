@@ -5,6 +5,8 @@ k9s = "latest"
 flux2 = "latest"
 cilium-cli = "latest"
 "aqua:cilium/hubble" = "latest"
+age = "latest"
+sops = "latest"
 
 [env]
 KUBECONFIG = "{{config_root}}/kubeconfig"
