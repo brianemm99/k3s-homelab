@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - linkding
   - homepage
+  - forgejo
   #- audiobookshelf
   #- mealie

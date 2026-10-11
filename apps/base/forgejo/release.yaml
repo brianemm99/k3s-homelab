@@ -1,0 +1,126 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo
+  namespace: forgejo
+spec:
+  interval: 24h
+  chartRef:
+    kind: OCIRepository
+    name: forgejo
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 0
+  values:
+    image:
+      rootless: true
+      pullPolicy: IfNotPresent
+
+    # --- Non-root, hardened -----------------------------------------------------
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+      fsGroupChangePolicy: OnRootMismatch
+      seccompProfile:
+        type: RuntimeDefault
+
+    containerSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true # if the pod logs "read-only file system", set false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+
+    serviceAccount:
+      create: true
+      automountServiceAccountToken: false
+
+    replicaCount: 1
+    strategy:
+      type: Recreate
+
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        memory: 5Gi
+    service:
+      http:
+        type: ClusterIP
+        port: 3000
+      ssh:
+        type: ClusterIP # SSH server disabled below
+
+    ingress:
+      enabled: false
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: "" # empty = cluster default
+      annotations:
+        helm.sh/resource-policy: keep
+
+    test:
+      enabled: false
+
+    gitea:
+      admin:
+        existingSecret: forgejo-admin-secret # never stored in git (see README)
+        email: brianemm99@example.com # CHANGE ME
+        passwordMode: initialOnlyNoReset
+
+      metrics:
+        enabled: false
+
+      config:
+        APP_NAME: Forgejo
+        RUN_MODE: prod
+
+        server:
+          DOMAIN: git.brianemm99.net
+          ROOT_URL: https://git.brianemm99.net/
+          PROTOCOL: http
+          DISABLE_SSH: true
+          START_SSH_SERVER: false
+          ENABLE_PPROF: false
+          LANDING_PAGE: login
+
+        service:
+          DISABLE_REGISTRATION: true
+          REQUIRE_SIGNIN_VIEW: true
+          DEFAULT_KEEP_EMAIL_PRIVATE: true
+          DEFAULT_ALLOW_CREATE_ORGANIZATION: false
+          ENABLE_NOTIFY_MAIL: false
+
+        security:
+          MIN_PASSWORD_LENGTH: 12
+          PASSWORD_COMPLEXITY: lower,upper,digit
+          LOGIN_REMEMBER_DAYS: 7
+
+        session:
+          COOKIE_SECURE: true
+          SAME_SITE: strict
+
+        openid:
+          ENABLE_OPENID_SIGNIN: false
+          ENABLE_OPENID_SIGNUP: false
+
+        api:
+          ENABLE_SWAGGER: false
+
+        indexer:
+          REPO_INDEXER_ENABLED: true
+
+        log:
+          LEVEL: Info
