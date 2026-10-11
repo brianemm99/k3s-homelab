@@ -94,14 +94,17 @@ spec:
           DISABLE_SSH: true
           START_SSH_SERVER: false
           ENABLE_PPROF: false
-          LANDING_PAGE: login
+          LANDING_PAGE: explore
 
         service:
           DISABLE_REGISTRATION: true
-          REQUIRE_SIGNIN_VIEW: true
+          REQUIRE_SIGNIN_VIEW: false
           DEFAULT_KEEP_EMAIL_PRIVATE: true
           DEFAULT_ALLOW_CREATE_ORGANIZATION: false
           ENABLE_NOTIFY_MAIL: false
+
+        service.explore:
+          DISABLE_USERS_PAGE: true
 
         security:
           MIN_PASSWORD_LENGTH: 12
