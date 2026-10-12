@@ -94,7 +94,7 @@ spec:
           DISABLE_SSH: true
           START_SSH_SERVER: false
           ENABLE_PPROF: false
-          LANDING_PAGE: explore
+          LANDING_PAGE: /brianemm99
 
         service:
           DISABLE_REGISTRATION: true
