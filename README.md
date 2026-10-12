@@ -4,7 +4,7 @@
 
 ## Summary
 
-This repo contains files needed to build a lightweight k3s Kubernetes Cluster. The cluster uses GitOps workflow with FluxCD and standard Repository structure. Networking handled by Cilium. Monitoring is taken care by the kube-prometheus-stack and grafana. Ingress is handled through the Tailscale Kubernetes Operator. Automated image updates are scanned for using the renovate bot and applied through PR's.
+This repo contains files needed to build a lightweight k3s Kubernetes Cluster. The cluster uses GitOps workflow with FluxCD and standard Repository structure. Networking handled by Cilium. Monitoring is taken care by the kube-prometheus-stack and grafana. Ingress is handled through the Tailscale Kubernetes Operator and Cloudflare Tunnels. Automated image updates are scanned for using the renovate bot and applied through PR's.
 
 ### *UPCOMING PROJECTS*
 
