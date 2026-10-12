@@ -1,12 +1,14 @@
-## Kubernetes Homelab
+# Kubernetes Homelab
 
 ---
+
+## Summary
+
 This repo contains files needed to build a lightweight k3s Kubernetes Cluster. The cluster uses GitOps workflow with FluxCD and standard Repository structure. Networking handled by Cilium. Monitoring is taken care by the kube-prometheus-stack and grafana. Ingress is handled through the Tailscale Kubernetes Operator. Automated image updates are scanned for using the renovate bot and applied through PR's.
 
-#### *UPCOMING PROJECTS*
+### *UPCOMING PROJECTS*
 
 - n8n instance on cloudflare
-- *Local Forgejo Instance in Kubernetes*
 - *Add 2 nodes to the cluster*
 
 ### Hardware
@@ -28,6 +30,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 - Cilium CNI + Hubble observability
 - kube-prometheus-stack
 - Tailscale
+- Cloudflare
 - Renovate
 
 ### Applications
@@ -39,6 +42,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 - Grafana --> kube-prometheus-stack monitoring tool
 - Mealie --> recipe manager
 - Audiobookshelf --> audiobook library
+- Forgejo --> git instance --> [Forgejo](https://git.brianemm99.net)
 
 ### CNI
 
@@ -59,7 +63,7 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 
 - kube-prometheus-stack deployed using Helm chart
 - Chose to to automatic updates for patches and minor updates
- 	- Major updates still need to be done manually
+- Major updates still need to be done manually
 
 ### Ingress
 
@@ -71,6 +75,12 @@ Using Tailscales Kubernetes Operator to access applications with MagicDNS.
 - OAuth encrypted with SOPS + age encryption
 - Operator deployed using tailscale Helm chart
 - Operator issues TLS certs as well as manages renewals automatically
+
+---
+Cloudflare
+Using cloudflare tunnels to expose some applications publicly
+
+- Metrics available to grafana
 
 ### Secrets
 
