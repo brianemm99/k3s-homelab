@@ -23,7 +23,7 @@ spec:
       enableServiceLinks: true
       containers:
         - name: homepage
-          image: "ghcr.io/gethomepage/homepage:latest"
+          image: "ghcr.io/gethomepage/homepage:2.4.0"
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
