@@ -61,7 +61,7 @@ spec:
         port: 3000
       ssh:
         type: ClusterIP # SSH server disabled below
-    exrtaVolumes:
+    extraVolumes:
       - name: custom-templates
         configMap:
           name: forgejo-custom-templates
