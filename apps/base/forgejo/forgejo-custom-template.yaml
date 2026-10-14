@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forgejo-custom-templates
+  namespace: forgejo
+data:
+  extra_links.tmpl: |
+    <a class="item" href="{{AppSubUrl}}/brianemm99">brianemm99</a>

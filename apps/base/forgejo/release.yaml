@@ -20,7 +20,7 @@ spec:
       rootless: true
       pullPolicy: IfNotPresent
 
-    # --- Non-root, hardened -----------------------------------------------------
+    # Non-root
     podSecurityContext:
       runAsNonRoot: true
       runAsUser: 1000
@@ -61,12 +61,20 @@ spec:
         port: 3000
       ssh:
         type: ClusterIP # SSH server disabled below
+    exrtaVolumes:
+      name: custom-templates
+      configMap:
+        name: forgejo-custom-templates
+    extraContainerVolumeMounts:
+      name: custom-templates
+      mountPath: /data/gitea/templates/custom
+      readOnly: true
 
     ingress:
       enabled: false
     persistence:
       enabled: true
-      size: 10Gi
+      size: 20Gi
       storageClass: "" # empty = cluster default
       annotations:
         helm.sh/resource-policy: keep
@@ -76,7 +84,7 @@ spec:
 
     gitea:
       admin:
-        existingSecret: forgejo-admin-secret # never stored in git (see README)
+        existingSecret: forgejo-admin-secret
         email: brianemm99@example.com # CHANGE ME
         passwordMode: initialOnlyNoReset
 
@@ -94,7 +102,7 @@ spec:
           DISABLE_SSH: true
           START_SSH_SERVER: false
           ENABLE_PPROF: false
-          LANDING_PAGE: /brianemm99
+          LANDING_PAGE: home
 
         service:
           DISABLE_REGISTRATION: true
