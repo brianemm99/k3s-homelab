@@ -74,7 +74,7 @@ spec:
       enabled: false
     persistence:
       enabled: true
-      size: 20Gi
+      size: 10Gi
       storageClass: "" # empty = cluster default
       annotations:
         helm.sh/resource-policy: keep
