@@ -62,13 +62,13 @@ spec:
       ssh:
         type: ClusterIP # SSH server disabled below
     exrtaVolumes:
-      name: custom-templates
-      configMap:
-        name: forgejo-custom-templates
+      - name: custom-templates
+        configMap:
+          name: forgejo-custom-templates
     extraContainerVolumeMounts:
-      name: custom-templates
-      mountPath: /data/gitea/templates/custom
-      readOnly: true
+      - name: custom-templates
+        mountPath: /data/gitea/templates/custom
+        readOnly: true
 
     ingress:
       enabled: false
