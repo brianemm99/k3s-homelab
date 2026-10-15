@@ -57,7 +57,7 @@
         description: codeberg
     - Forgejo Public:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/forgejo.png
-        href: https://git.brianemm99.net/brianemm99
+        href: https://git.brianemm99.net
         description: Public git instance
     - Forgejo Private:
         icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/git.png
