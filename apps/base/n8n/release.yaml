@@ -15,6 +15,8 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 0
+  # values are written for helm chart 1.17.0
+  # check UPGRADING.md before merging major version
   values:
     queueMode:
       enabled: false
@@ -53,6 +55,8 @@ spec:
     taskRunners:
       enabled: true
       nativePythonRunner: true
+      authToken:
+        existingSecret: n8n-secrets
 
     rbac:
       create: false # n8n doesn't call the Kubernetes API
@@ -60,7 +64,7 @@ spec:
       automountServiceAccountToken: false
 
     podSecurityContext:
-      shared:
+      main:
         runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 1000
@@ -70,7 +74,7 @@ spec:
           type: RuntimeDefault
 
     containerSecurityContext:
-      shared:
+      main:
         runAsNonRoot: true
         allowPrivilegeEscalation: false
         capabilities:
@@ -80,6 +84,12 @@ spec:
       taskRunner:
         runAsUser: 65532
         runAsGroup: 65532
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+        seccompProfile:
+          type: RuntimeDefault
 
     resources:
       main:
