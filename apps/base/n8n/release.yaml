@@ -1,0 +1,97 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: n8n
+  namespace: n8n
+spec:
+  interval: 24h
+  chartRef:
+    kind: OCIRepository
+    name: n8n
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 0
+  values:
+    queueMode:
+      enabled: false
+    database:
+      type: sqlite
+      useExternal: false
+    redis:
+      enabled: false
+    strategy:
+      type: Recreate
+
+    persistence:
+      enabled: true
+      existingClaim: n8n-data
+
+    # Secrets (SOPS-encrypted, @apps/staging/n8n)
+    secretRefs:
+      existingSecret: n8n-secrets
+
+    ingress:
+      enabled: false
+    webhook:
+      url: https://n8n.brianemm99.net
+    editor:
+      url: https://n8n.brianemm99.net
+
+    config:
+      timezone: America/New_York
+
+    env:
+      main:
+        N8N_PROXY_HOPS: "1"
+        GENERIC_TIMEZONE: America/New_York # timezone for Schedule triggers
+
+    # Task runners: sandboxed sidecar for Code nodes (JS + Python)
+    taskRunners:
+      enabled: true
+      nativePythonRunner: true
+
+    rbac:
+      create: false # n8n doesn't call the Kubernetes API
+    serviceAccount:
+      automountServiceAccountToken: false
+
+    podSecurityContext:
+      shared:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault
+
+    containerSecurityContext:
+      shared:
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop: ["ALL"]
+        seccompProfile:
+          type: RuntimeDefault
+      taskRunner:
+        runAsUser: 65532
+        runAsGroup: 65532
+
+    resources:
+      main:
+        requests:
+          cpu: 100m
+          memory: 512Mi
+        limits:
+          memory: 1Gi
+
+    # Execution history: keep 14 days / 10k runs (chart defaults)
+    executions:
+      pruning:
+        enabled: true
+        maxAge: 336
+        maxCount: 10000

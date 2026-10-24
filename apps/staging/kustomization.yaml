@@ -4,5 +4,6 @@ resources:
   - linkding
   - homepage
   - forgejo
+  - n8n
   #- audiobookshelf
   #- mealie

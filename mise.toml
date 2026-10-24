@@ -7,6 +7,7 @@ cilium-cli = "latest"
 "aqua:cilium/hubble" = "latest"
 age = "latest"
 sops = "latest"
+cloudflared = "latest"
 
 [env]
 KUBECONFIG = "{{config_root}}/kubeconfig"

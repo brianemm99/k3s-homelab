@@ -3,4 +3,6 @@ kind: Kustomization
 namespace: n8n
 resources:
   - ../../base/n8n/
-  - ingress.yaml
+  - n8n-secrets.sops.yaml
+  - cloudflare.yaml
+  - cloudflare-secret.yaml

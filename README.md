@@ -8,7 +8,6 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 
 ### *UPCOMING PROJECTS*
 
-- n8n instance on cloudflare
 - *Add 2 nodes to the cluster*
 
 ### Hardware
@@ -42,7 +41,8 @@ This repo contains files needed to build a lightweight k3s Kubernetes Cluster. T
 - Grafana --> kube-prometheus-stack monitoring tool
 - Mealie --> recipe manager
 - Audiobookshelf --> audiobook library
-- Forgejo --> git instance --> [Forgejo](https://git.brianemm99.net)
+- [Forgejo](https://git.brianemm99.net/brianemm99/k3s-homelab) --> git instance
+- n8n --> n8n automation tool
 
 ### CNI
 
