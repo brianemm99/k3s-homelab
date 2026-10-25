@@ -11,10 +11,10 @@
         icon: linkding.png
         href: https://linkding.toyger-court.ts.net
         description: Bookmarks
-    - Audiobookshelf:
-        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/audiobookshelf.png
-        href: https://audiobookshelf.toyger-court.ts.net
-        description: Audiobooks
+    - n8n:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/n8n.png
+        href: https://n8n.brianemm99.net
+        description: automation workflows
     - Mealie:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
         href: https://mealie.toyger-court.ts.net/g/home
