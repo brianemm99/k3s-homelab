@@ -5,5 +5,6 @@ resources:
   - homepage
   - forgejo
   - n8n
+  - ntfy
   #- audiobookshelf
   #- mealie
