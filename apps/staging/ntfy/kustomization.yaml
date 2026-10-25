@@ -4,4 +4,4 @@ namespace: ntfy
 resources:
   - ../../base/ntfy
   - cloudflare.yaml
-  - cloudflare-secret.yaml
+  - cloudflare-secret.sops.yaml
