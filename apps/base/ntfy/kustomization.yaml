@@ -10,4 +10,4 @@ resources:
 configMapGenerator:
   - name: ntfy-config
     files:
-      - server.yaml
+      - server.yml=server.yaml

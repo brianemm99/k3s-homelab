@@ -71,5 +71,5 @@ data:
     protocol: http2
     ingress:
       - hostname: ntfy.brianemm99.net
-        service: http://ntfy:8080
+        service: http://ntfy:80
       - service: http_status:404
