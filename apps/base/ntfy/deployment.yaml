@@ -69,5 +69,5 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: ntfy-data
-        - name: temp
+        - name: tmp
           emptyDir: {}
