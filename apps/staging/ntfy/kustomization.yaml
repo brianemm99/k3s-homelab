@@ -5,3 +5,4 @@ resources:
   - ../../base/ntfy
   - cloudflare.yaml
   - cloudflare-secret.sops.yaml
+  - ntfy-secrets.sops.yaml
