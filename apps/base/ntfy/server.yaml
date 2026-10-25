@@ -1,0 +1,14 @@
+base-url: "https://ntfy.brianemm99.net"
+listen-http: ":8080"
+behind-proxy: true
+
+cache-file: "/var/lib/ntfy/cache.db"
+attachment-cache-dir: "/var/lib/ntfy/attachments"
+
+# Require login for everything; create users with `ntfy user add`
+auth-file: "/var/lib/ntfy/user.db"
+auth-default-access: "deny-all"
+enable-login: true
+
+# Needed for instant notifications on iPhone; harmless on Android
+upstream-base-url: "https://ntfy.sh"
