@@ -15,6 +15,10 @@
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/n8n.png
         href: https://n8n.brianemm99.net
         description: automation workflows
+    - Ntfy:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ntfy.png
+        href: https://ntfy.brianemm99.net/weather
+        description: notification center
     - Mealie:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
         href: https://mealie.toyger-court.ts.net/g/home
