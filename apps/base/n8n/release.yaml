@@ -105,3 +105,17 @@ spec:
         enabled: true
         maxAge: 336
         maxCount: 10000
+  # skip tailscale
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: Deployment
+              name: n8n-main
+            patch: |
+              - op: add
+                path: /spec/template/spec/dnsConfig
+                value:
+                  options:
+                    - name: ndots
+                      value: "2"
