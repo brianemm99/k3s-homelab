@@ -73,6 +73,6 @@ data:
     no-autoupdate: true
     ingress:
     - hostname: n8n.brianemm99.net
-      service: http://n8n-main:5678
+      service: http://n8n:3008
     # Anything that didn't match a rule above gets a 404
     - service: http_status:404
