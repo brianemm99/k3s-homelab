@@ -32,7 +32,7 @@ spec:
       enabled: true
       existingClaim: n8n-data
 
-    # Secrets (SOPS-encrypted, @apps/staging/n8n)
+    # Secrets (SOPS-encrypted, apps/staging/n8n)
     secretRefs:
       existingSecret: n8n-secrets
 
@@ -51,10 +51,8 @@ spec:
         N8N_PROXY_HOPS: "1"
         GENERIC_TIMEZONE: America/New_York # timezone for Schedule triggers
 
-    # Task runners: sandboxed sidecar for Code nodes (JS + Python)
     taskRunners:
       enabled: true
-      nativePythonRunner: true
       authToken:
         existingSecret: n8n-secrets
 
@@ -94,8 +92,8 @@ spec:
     resources:
       main:
         requests:
-          cpu: 100m
-          memory: 512Mi
+          cpu: 50m
+          memory: 256Mi
         limits:
           memory: 1Gi
 
