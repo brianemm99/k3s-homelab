@@ -29,7 +29,7 @@ spec:
                 name: n8n-configmap
             - secretRef:
                 name: n8n-secrets
-          image: docker.n8n.io/n8nio/n8n:2.44.7
+          image: docker.n8n.io/n8nio/n8n:2.46.3
           livenessProbe:
             failureThreshold: 3
             httpGet:
