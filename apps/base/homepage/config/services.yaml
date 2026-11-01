@@ -3,6 +3,10 @@
         icon: tailscale.png
         href: https://console.tailscale.com
         description: tailnet
+    - Cloudflare:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cloudflare.png
+        href: https://dash.cloudflare.com/
+        description: cloudflare dashboard
     - Grafana:
         icon: grafana.png
         href: https://grafana.toyger-court.ts.net
@@ -19,14 +23,14 @@
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ntfy.png
         href: https://ntfy.brianemm99.net/weather
         description: notification center
-    - Mealie:
-        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
-        href: https://mealie.toyger-court.ts.net/g/home
-        description: Recipes
     - Pi-Hole:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pi-hole.png
         href: https://pi-hole.toyger-court.ts.net/admin/
         description: ad-blocker
+    - Mealie:
+        icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png
+        href: https://mealie.toyger-court.ts.net/g/home
+        description: Recipes
 
 - Kubernetes Docs:
     - Kubernetes Documentation:

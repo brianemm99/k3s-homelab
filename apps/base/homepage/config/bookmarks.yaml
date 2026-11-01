@@ -29,9 +29,9 @@
     - Docker:
         - icon: docker.png
           href: https://app.docker.com/
-    - Cloudflare:
-        - icon: cloudflare.png
-          href: https://developers.cloudflare.com/tunnel/downloads/
+    - Renovate:
+        - icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/renovate-bot.png
+          href: https://docs.renovatebot.com/
     - Chezmoi:
         - abbr: ChM
           href: https://www.chezmoi.io/
@@ -66,4 +66,3 @@
     - Lua:
         - icon: lua.png
           href: https://www.lua.org/manual/5.5/
-
