@@ -4,7 +4,7 @@
 
 A self-hosted Kubernetes cluster managed entirely through GitOps. Every app, controller, and secret in the cluster is declared in this repo and reconciled by FluxCD. Nothing is applied by hand after a bootstrap.
 
-The cluster runs on a single mini NAS today. The plan is to expand this to a 3 node cluster once my other hardware becomes available. (currently being used for kubeadm cluster in VMs studying for CKA)
+The cluster runs on a single mini NAS today. The plan is to expand this to a 3 node cluster once my other hardware becomes available. (currently being used for kubeadm cluster studying for CKA with VMs)
 
 ## Highlights
 
@@ -63,6 +63,7 @@ Flux applies repo as three kustomizations:
 
 ### Screenshots
 
+Homepage:
 ![Homepage](docs/images/homepage20261101.png)
 
 ### Design Decisions
