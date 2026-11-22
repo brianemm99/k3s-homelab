@@ -224,7 +224,7 @@ data:
                       </div>
                     </div>
                   </div>
-                  <div><span class="u">brianemm99@homelab</span><span class="p">:</span><span class="t">~</span><span class="s">$</span> <span class="c">git clone git.brianemm99.net/brianemm99/k3s-homelab</span></div>
+    <div><span class="u">brianemm99@homelab</span><span class="p">:</span><span class="t">~</span><span class="s">$</span> <span class="c">git clone https://git.brianemm99.net/brianemm99/k3s-homelab</span></div>
                   <div class="p">Cloning into 'k3s-homelab'...</div>
                   <div><span class="u">brianemm99@homelab</span><span class="p">:</span><span class="t">~</span><span class="s">$</span> <span class="caret" aria-hidden="true"></span></div>
                 </div>
