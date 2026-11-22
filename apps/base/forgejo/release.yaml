@@ -67,7 +67,7 @@ spec:
           name: forgejo-custom-templates
       - name: home-template
         configMap:
-          name: foregjo-home-template
+          name: forgejo-home-template
     extraContainerVolumeMounts:
       - name: custom-templates
         mountPath: /data/gitea/templates/custom
