@@ -6,3 +6,6 @@ metadata:
 data:
   extra_links.tmpl: |
     <a class="item" href="{{AppSubUrl}}/brianemm99">brianemm99</a>
+  header.tmpl: |
+    <script>if (location.hostname === "git.brianemm99.net") document.documentElement.classList.add("public-host");</script>
+    <style>.public-host a[href^="{{AppSubUrl}}/user/login"] { display: none !important; }</style>

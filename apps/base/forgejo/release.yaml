@@ -60,7 +60,7 @@ spec:
         type: ClusterIP
         port: 3000
       ssh:
-        type: ClusterIP # SSH server disabled below
+        type: ClusterIP # SSH server exposed only on tailnet. Defined in tailscale-ssh.yaml
     extraVolumes:
       - name: custom-templates
         configMap:
@@ -99,8 +99,11 @@ spec:
           DOMAIN: git.brianemm99.net
           ROOT_URL: https://git.brianemm99.net/
           PROTOCOL: http
-          DISABLE_SSH: true
-          START_SSH_SERVER: false
+          DISABLE_SSH: false
+          START_SSH_SERVER: true
+          SSH_LISTEN_PORT: 2222 #inside the pod. Not port 22 becauae running Non-root
+          SSH_PORT: 22
+          SSH_DOMAIN: git-ssh.toyger-court.ts.net
           ENABLE_PPROF: false
           LANDING_PAGE: home
 
@@ -110,9 +113,16 @@ spec:
           DEFAULT_KEEP_EMAIL_PRIVATE: true
           DEFAULT_ALLOW_CREATE_ORGANIZATION: false
           ENABLE_NOTIFY_MAIL: false
+          ENABLE_BASIC_AUTENTICATION: false
 
         service.explore:
           DISABLE_USERS_PAGE: true
+
+        repository:
+          DEFAULT_PRIVATE: private
+
+        actions:
+          ENABLED: true
 
         security:
           MIN_PASSWORD_LENGTH: 12

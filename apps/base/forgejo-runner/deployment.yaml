@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgejo-runner
+  namespace: forgejo-runner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: forgejo-runner
+  template:
+    metadata:
+      labels:
+        app: forgejo-runner
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+      containers:
+        # Docker daemon that runs the CI job containers.
+        - name: docker
+          image: docker.io/library/docker:29.7.1-dind
+          args:
+            - dockerd
+            - --host=tcp://127.0.0.1:2375
+            - --tls=false
+          env:
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          securityContext:
+            privileged: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 4Gi
+          volumeMounts:
+            - name: docker-storage
+              mountPath: /var/lib/docker
+        - name: runner
+          image: data.forgejo.org/forgejo/runner:13.1.0
+          command: ["sh", "-c"]
+          args:
+            - |
+              until wget -q -O /dev/null http://127.0.0.1:2375/version; do
+                echo "waiting for docker..."; sleep 3
+              done
+              exec forgejo-runner daemon --config /config/config.yaml
+          workingDir: /data
+          env:
+            - name: DOCKER_HOST
+              value: tcp://127.0.0.1:2375
+            - name: HOME
+              value: /data
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              memory: 512Mi
+          volumeMounts:
+            - name: config
+              mountPath: /config
+              readOnly: true
+            - name: runner-data
+              mountPath: /data
+      volumes:
+        - name: config
+          secret:
+            secretName: forgejo-runner-config
+        - name: runner-data
+          emptyDir: {}
+        - name: docker-storage
+          persistentVolumeClaim:
+            claimName: forgejo-runner-docker-cache

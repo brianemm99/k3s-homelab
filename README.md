@@ -53,7 +53,8 @@ Flux applies repo as three kustomizations:
 | Homepage | browser dashboard | Tailscale | Manifests | Active |
 | Grafana | monitoring dashboard | Tailscale | Helm (kube-prometheus-stack) | Active |
 | linkding | bookmark manager | Tailscale | Manifests | Active |
-| [Forgejo](https://git.brianemm99.net/brianemm99) | self-hosted Git | Cloudflare tunnel | Helm | Active |
+| [Forgejo](https://git.brianemm99.net/brianemm99) | self-hosted Git | Cloudflare tunnel (read-only) + Tailscale (sign-in) | Helm | Active |
+| Forgejo Runner | CI Forgejo Actions (Docker-in-Docker) | In cluster only | Manifests | Active |
 | n8n | workflow automation | Cloudflare tunnel | Manifests | Active |
 | ntfy | notification center | Cloudflare tunnel | Manifests | Active |
 | Mealie | recipe manager | Tailscale | Manifests | Paused |
@@ -68,7 +69,7 @@ Homepage:
 
 - Tailscale for private access: Want to keep any applications that only need to be reached by me. Tailscale traffic is encrypted end-to-end with WireGuard, with TLS on top.
 - Cloudflare for public access: Anything that needs to be reachable from the internet goes through Cloudflare tunnels. The tunnels are outbound only, so no open ports on my home network.
-  - Forgejo for public readability
+  - Forgejo for public readability: tunnel blocks sign-in, admin, and git push. sign-in is tailscale only.
   - n8n for webhooks
   - ntfy for push notifications to my phone even when tailscale is disabled.
 - Plain manifests over Helm charts: For single container applications, explicit manifests keep the security context, resources, and probes easier to review and maintain than large values files.

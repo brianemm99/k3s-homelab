@@ -6,3 +6,5 @@ resources:
   - forgejo-admin.sops.yaml
   - cloudflare.yaml
   - cloudflare-secret.yaml
+  - ingress.yaml
+  - tailscale-ssh.yaml

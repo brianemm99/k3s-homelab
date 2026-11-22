@@ -4,6 +4,7 @@ resources:
   - linkding
   - homepage
   - forgejo
+  - forgejo-runner
   - n8n
   - ntfy
   #- audiobookshelf

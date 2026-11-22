@@ -78,6 +78,14 @@ data:
     metrics: 0.0.0.0:2000
     no-autoupdate: true
     ingress:
+    # disable sign-in & sign_up for cloudflare -> 404 error
+    - hostname: git.brianemm99.net
+      path: ^/(user/(login|sign_up|two_factor|webauthn|forgot_password|recover_account|reset_password|link_account|activate|oauth2)|login|admin|api/v1/admin|api/swagger)(/|$)
+      service: http_status:404
+    # No git push over public hostname -> 403 error
+    - hostname: git.brianemm99.net
+      path: /git-receive-pack$
+      service: http_status:403
     - hostname: git.brianemm99.net
       service: http://forgejo-http:3000
     # This rule matches any traffic which didn't match a previous rule, and responds with HTTP 404.

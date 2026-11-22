@@ -14,3 +14,6 @@ spec:
     - ports:
         - protocol: TCP
           port: 3000
+        # ssh only exposed to Tailscale Service
+        - protocol: TCP
+          port: 2222

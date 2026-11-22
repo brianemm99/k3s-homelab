@@ -1,0 +1,19 @@
+# Git over ssh for tailscale only.
+# No public route
+apiVersion: v1
+kind: Service
+metadata:
+  name: forgejo-ssh-tailscale
+  annotations:
+    tailscale.com/hostname: git-ssh
+spec:
+  type: LoadBalancer
+  loadBalancerClass: tailscale
+  selector:
+    app.kubernetes.io/name: forgejo
+    app.kubernetes.io/instance: forgejo
+  ports:
+    - name: ssh
+      protocol: TCP
+      port: 22
+      targetPort: 2222
