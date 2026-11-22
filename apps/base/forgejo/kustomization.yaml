@@ -6,3 +6,4 @@ resources:
   - release.yaml
   - networkpolicy.yaml
   - forgejo-custom-template.yaml
+  - forgejo-home-template.yaml

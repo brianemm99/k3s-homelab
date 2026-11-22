@@ -65,9 +65,16 @@ spec:
       - name: custom-templates
         configMap:
           name: forgejo-custom-templates
+      - name: home-template
+        configMap:
+          name: foregjo-home-template
     extraContainerVolumeMounts:
       - name: custom-templates
         mountPath: /data/gitea/templates/custom
+        readOnly: true
+      - name: home-template
+        mountPath: /data/gitea/templates/home.tmpl
+        subPath: home.tmpl
         readOnly: true
 
     ingress:
