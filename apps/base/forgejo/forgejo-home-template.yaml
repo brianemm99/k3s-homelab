@@ -96,7 +96,7 @@ data:
 
         /* tmux card */
         .card-col { flex: 1 1 440px; min-width: 0; display: flex; justify-content: center; }
-        .float { width: 100%; max-width: 520px; animation: float 7s ease-in-out infinite; }
+        .float { width: 100%; max-width: 520px; }
         .term {
           display: flex; flex-direction: column; overflow: hidden; border-radius: 10px;
           border: 1px solid rgba(240,122,58,.28); background: rgba(16,14,15,.94); backdrop-filter: blur(12px);
@@ -150,11 +150,10 @@ data:
         .rise { animation: rise .9s var(--ease) both; }
         .d1 { animation-delay: .08s; } .d2 { animation-delay: .18s; } .d3 { animation-delay: .3s; } .d4 { animation-delay: .42s; }
         @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
         @media (prefers-reduced-motion: reduce) {
-          .rise, .float, .caret, .dot { animation: none; }
+          .rise, .caret, .dot { animation: none; }
           .glow, .word, .term, .btn-primary { transition: none; }
         }
       </style>
@@ -170,8 +169,8 @@ data:
             brianemm99
           </a>
           <div class="pills">
-            <a href="{{AppSubUrl}}/explore/repos">Repositories</a>
-            <a href="{{AppSubUrl}}/brianemm99">Profile</a>
+            <a href="{{AppSubUrl}}/brianemm99/k3s-homelab">Homelab</a>
+            <a href="{{AppSubUrl}}/brianemm99/dotfiles">Dotfiles</a>
             <!-- hidden on the public host by custom/header.tmpl -->
             <a href="{{AppSubUrl}}/user/login">Sign in</a>
           </div>
