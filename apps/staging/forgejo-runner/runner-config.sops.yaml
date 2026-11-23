@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: forgejo-runner-config
-    namespace: forgejo-runner
+  name: forgejo-runner-config
+  namespace: forgejo-runner
 type: Opaque
 stringData:
-    config.yaml: ENC[AES256_GCM,data:wwROjzPVAHdK+thps/anNOaMWMHcFrRgJ5pye8vhBuLTEZ4z7xufq794944gGgE5FsbqLJKRoKLH4rFlfqDSF4k4D11jJwuRd7KOLkJSVcKEXv+3o/z5T8Yed1avSzmhoENmA4lWlGgcHr7l+6P0YWpVicDuk2iNwDtE54X/gwXOc57kVbMpB/VKhwU2hdSzOXRH0cR0TnSCCZ81s1C01OJFFHiGkQv/tvDXmXW7G5ewN0kFLR6dAPGn+iEL0CoayjQyIEmgGySFUJ6rDsCtFotM/BwdOdl/CC5ZJL+NfRntZ5ud0U1obd0RuovimH+Emjg1huDE087+Nabl9thNBT4LXRp1JJ3zu6kx2I1YD99VMz3dETUtWrNCnTQgKOtBC6N+/JSfFneE0D3jIaoaMi3bAD6jRuQxCMQZLAdLfM4RdYhXFw0F7uh/7cS/E3R/HcfYEClKa7SGoxzBmie5PCgvtYr78KyXCGoG/yQMg7AKGiNAIZGiLDcU39aq0S93ZXew3XKu0E5F61l2oS9baGWV0Dkj5AVvdSgnEkWpqmcoIqr9I7Hc/h8DcUEhFidTrny/c2I49VuhWc9HN5phuzH9fJdK7BnpJGxcM9AriksSnVw1cyk37kfRLw3KRvPSU+Gu8a2CgSZnQlDSrUDWFFaRLuam5vwvuaS7unZH8X2K+hXLf041E5mH66nQrPLtJrA2dLzzi9SNS/oTNXdiUZM0/Ks=,iv:P/ykWM4CW17n7ntPzHfo6Ow2ZNtc5cXFsx3ZTmnKJMQ=,tag:bUnStfxTG/xVwl2xhYrGHw==,type:str]
+  config.yaml: ENC[AES256_GCM,data:Trps/JLc1+UpPKW/TE1JDUmNKWrbgAQxPXqBLS/wZ0YJti9KbO1nJnFSVksQYW+WnCZg9Tvku/y7a3pKPTa+y1OKuMQ/6tFb+xK2xY6+9/DYTccAX2GATsUXhM4VZyJxv9qVgb3OrhrAsICtUsB29k42Pkcj4oPmw9ltUWakAb9NHAjCx+TR7w2q+BMEVpUB//vpWatxRoDjd8Ies//sS61l3d2a4HiUB6KoRuMvvq9JbqHPgYZ3vCXnPD+qATGhJAViXg+za9IeIpewGuhL92y3YHa5dgp1x41s6apbxH0EhY4U9+EzTtIUkMFi3XONC3ihiNfjhszVDNCNkHBtiEEvhuravXCuR2mvV+GX6cbEneK7belYGyrf6hB801wsW/EYkUODj45sg3UkBAvN4u+ZJ3Xpq6MksiNm7YhChW9cp9nnZ/aDsI19dOHEt6n3v2GGWYdC6SMY6vLZEe6ooYaNijABrf1rBileZSiHH2Vbhkt2X6IsrM/vji3ogJhHH1hG55saOPhvQbXrHCoBb6Y4tqBVyKk57he7mZH4qKHMqiLHfvxO7503IMXUrROO/38K+21V2gVQk+FnB0c9CGav7w67rKyZ93IDOMzZ0KS7BEg24ENkPcH3thXbnJh6ldwcWZDNRhSORVft5pkTH6hme8kas8szkrgW0HL/cqeMrR/6hldgrSfCwAKLbu/Ls/g9BqQQkO9U9bz2OmufCc2W3g==,iv:XE6llearjBSqeohXu6L4CWwxK5geQX1gmlJUcEylo1w=,tag:oJs/ekvs7VwzGz+YxtaBcw==,type:str]
 sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsMWNYOUdwb2c0VWc1YnpY
-            UWVRV29pZlNjcWVyVkI2Zkw2WGxxeVJkNEFRCmpQdHhvMmwxZ3hia3lMbFQ5aWFy
-            eUdFQWo3eE1qZ2R6aC9RamMwd2Z5cWcKLS0tIHRHcjBtbVR4QkM5YURkTVBlNDZL
-            WWxIM1B2U0ZncWdRazM3V0JlSndlKzQKnGhl17mFa1jqBIg+tKwA3IYT1hV8KXo3
-            8ySzLqOqsnK3EgqamOUvyS/QcTPPuSlDehU5/KU+Y/kr+2QpOiJk9A==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age1m53mdahgvspp3j7smcw7y7zv9jw0kjqjaktyj4g88e5jlrj3cvzs7v64ms
-    encrypted_regex: ^(data|stringData)$
-    lastmodified: "2026-11-21T21:23:19Z"
-    mac: ENC[AES256_GCM,data:+7X20rEst2DxLhjlYb3TOXrP0+r+0ELjuU12sq5FNtMojnt/5ofaWJ/hybZbN7LkDGIuaO5rFk6f0YS8oqiASsaysMzf9ij1T0VQPfFW23ALc7HU5IGmamqWvT+s2MnydRILWtOxNrNx+zpqfcnt8b+p+i58YzaJepk/h5U7H/Y=,iv:HNO6aC/74QPxLGAp9eCe4qd3i5w4xM3EX5+WF2F+X+4=,tag:LPX8efRbUxRcRkrFO03DOA==,type:str]
-    version: 3.13.3
+  age:
+    - enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsMWNYOUdwb2c0VWc1YnpY
+        UWVRV29pZlNjcWVyVkI2Zkw2WGxxeVJkNEFRCmpQdHhvMmwxZ3hia3lMbFQ5aWFy
+        eUdFQWo3eE1qZ2R6aC9RamMwd2Z5cWcKLS0tIHRHcjBtbVR4QkM5YURkTVBlNDZL
+        WWxIM1B2U0ZncWdRazM3V0JlSndlKzQKnGhl17mFa1jqBIg+tKwA3IYT1hV8KXo3
+        8ySzLqOqsnK3EgqamOUvyS/QcTPPuSlDehU5/KU+Y/kr+2QpOiJk9A==
+        -----END AGE ENCRYPTED FILE-----
+      recipient: age1m53mdahgvspp3j7smcw7y7zv9jw0kjqjaktyj4g88e5jlrj3cvzs7v64ms
+  encrypted_regex: ^(data|stringData)$
+  lastmodified: "2026-11-23T03:44:11Z"
+  mac: ENC[AES256_GCM,data:hCKEViq2S7nOtczON/jVL5V9+D5G/UX+nlBC7wGe7W3rMP3tgowJ41EWdwendrGVZfW/m9lCQznKtpGdOVsZ8VP9/zYTzLMc7b1UMkf9nEfaQRuhc2hUvfnOH2PwiKBKlAMHJTs7TQOR0925JlLfxLX0rjCpp+r6QwdPQeBsxzQ=,iv:CJtQK2trSyN9MgB1gJckvAv4lSWIvRVsRbE6IWqqY3w=,tag:U6it62vOC/12pL9yVKhV2g==,type:str]
+  version: 3.13.3
