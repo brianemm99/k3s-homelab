@@ -131,6 +131,8 @@ spec:
 
         service.explore:
           DISABLE_USERS_PAGE: true
+
+        ui:
           DEFAULT_THEME: ember
           THEMES: ember,forgejo-auto,forgejo-light,forgejo-dark
 
