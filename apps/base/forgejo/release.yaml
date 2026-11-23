@@ -68,6 +68,9 @@ spec:
       - name: home-template
         configMap:
           name: forgejo-home-template
+      - name: theme
+        configMap:
+          name: forgejo-theme
     extraContainerVolumeMounts:
       - name: custom-templates
         mountPath: /data/gitea/templates/custom
@@ -75,6 +78,10 @@ spec:
       - name: home-template
         mountPath: /data/gitea/templates/home.tmpl
         subPath: home.tmpl
+        readOnly: true
+      - name: theme
+        mountPath: /data/gitea/public/assets/css/theme-ember.css
+        subPath: theme-ember.css
         readOnly: true
 
     ingress:
@@ -124,6 +131,8 @@ spec:
 
         service.explore:
           DISABLE_USERS_PAGE: true
+          DEFAULT_THEME: ember
+          THEMES: ember,forgejo-auto,forgejo-light,forgejo-dark
 
         repository:
           DEFAULT_PRIVATE: private
