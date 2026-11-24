@@ -4,3 +4,5 @@ namespace: forgejo-runner
 resources:
   - ../../base/forgejo-runner/
   - runner-config.sops.yaml
+components:
+  - ../../../components/tower
