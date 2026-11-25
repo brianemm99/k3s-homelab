@@ -21,7 +21,7 @@ spec:
       containers:
         # Docker daemon that runs the CI job containers.
         - name: docker
-          image: docker.io/library/docker:29.7.1-dind
+          image: docker.io/library/docker:29.10.1-dind
           args:
             - dockerd
             - --host=tcp://127.0.0.1:2375
