@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+    api-key: ENC[AES256_GCM,data:iVCEvf+UvHqKU9Sg2ilvdap0eWBFmBck/GwPUjBYVTx8Sg/J8097q9BxAOA8PX9WRjLHDMKoO/Ei+D+DgMiXn2AEWssFr4wLESqk88Xy4uebp1ALv4+xSA==,iv:9Vchbt6ikqWkLGMjQzK56GAqPPF9lvU+pFLb9FMBDtM=,tag:Xx0OTpscPhhkuG1EJcBt0g==,type:str]
+kind: Secret
+metadata:
+    name: llm-api-key
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB0YmE3SUF6OG1wRFYwd3A5
+            dGl5OHVTYUEyakpodmFpODVmRUowbGh3U3pjCmJVbDZPa0R6ZTliMU1WeWdGZGR3
+            RVQ0WnZVQ2REMGh1OWNySU11Qkd2ZFEKLS0tIGlwT0pzazh2L3NYanMrZnhhSGxN
+            NDZ5WEg5NVlzcVZESmdnMER5MGtyZHcKWQG+7vNlnIpa+TbSfse94hCAbO1/9755
+            gIlmVylrOYpaspeRrmQuc/HiOjiyyphI1/vswsHbOEptq953HkYyFQ==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age1m53mdahgvspp3j7smcw7y7zv9jw0kjqjaktyj4g88e5jlrj3cvzs7v64ms
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-11-25T22:28:52Z"
+    mac: ENC[AES256_GCM,data:yDBxFQ3Rp85hb049nT5dJoIAwih/5TOy61JUIPhaPHn+P6r3jRNpsG/MhJWfly1djergvSRJS/6oqLzlfzPMtarSyIs2/FyopVDvdB7h7gprDzw98qCkDiC6SZhA9gjlHIKkpUpZx4Ei0jOprLRO75QpGiH5UvtsiDYeEHIgUZ4=,iv:lDGY9G1ZdnHFd0iH1HPmy5sY7+c/Tq7I3ISR5AcZ/X4=,tag:zbP1yX8XqkoJ7Prh8G3oew==,type:str]
+    version: 3.13.3

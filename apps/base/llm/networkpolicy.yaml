@@ -1,0 +1,47 @@
+# Inbound: only Open WebUI and the Tailscale ingress proxies.
+# This keeps cloudflared and n8n (public-facing) from ever reaching the model.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: llama-server-ingress
+spec:
+  podSelector:
+    matchLabels:
+      app: llama-server
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: open-webui
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: tailscale
+      ports:
+        - protocol: TCP
+          port: 8080
+---
+# Outbound, always on: DNS lookups of in-cluster names only. Because this policy
+# selects the pod, every other outbound connection is blocked. (With no egress
+# policy at all, Cilium would allow everything, so never delete this one.)
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: llama-server-egress
+spec:
+  endpointSelector:
+    matchLabels:
+      app: llama-server
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: kube-system
+            k8s:k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: ANY
+          rules:
+            dns:
+              - matchPattern: "*.cluster.local"

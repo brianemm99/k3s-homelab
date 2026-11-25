@@ -1,0 +1,37 @@
+# Outbound, TEMPORARY: lets the init container download the model.
+# Remove this file from kustomization.yaml once the model is on the volume;
+# llama-server then has no outbound access at all.
+# Add it back only to download a different model.
+#
+# The file is stored with Xet: huggingface.co answers with a redirect to
+# cas-bridge.xethub.hf.co, which serves the bytes. If a download is blocked,
+#   hubble observe --namespace llm --verdict DROPPED
+# shows the host it tried, so you can add exactly that name.
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: llama-server-model-download
+spec:
+  endpointSelector:
+    matchLabels:
+      app: llama-server
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: kube-system
+            k8s:k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: ANY
+          rules:
+            dns:
+              - matchName: huggingface.co
+              - matchName: cas-bridge.xethub.hf.co
+    - toFQDNs:
+        - matchName: huggingface.co
+        - matchName: cas-bridge.xethub.hf.co
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP

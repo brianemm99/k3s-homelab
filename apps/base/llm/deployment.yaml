@@ -1,0 +1,174 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llama-server
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: llama-server
+  template:
+    metadata:
+      labels:
+        app: llama-server
+    spec:
+      automountServiceAccountToken: false
+      enableServiceLinks: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        # supplementalGroups comes from `getent group render video` command
+        supplementalGroups: [991, 44]
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+        # Downloads the model once. Writes to .part and renames only after the
+        # sha256 matches, so an interrupted download is never mistaken for a
+        # complete one. curl -C - resumes a partial file after a restart.
+        - name: fetch-model
+          image: ghcr.io/ggml-org/llama.cpp:server-rocm-b12723
+          command: ["sh", "-c"]
+          args:
+            - |
+              set -eu
+              f="/models/${MODEL_FILE}"
+              if [ -f "$f" ]; then echo "model present: $f"; exit 0; fi
+              url="https://huggingface.co/${MODEL_REPO}/resolve/${MODEL_REVISION}/${MODEL_FILE}"
+              echo "downloading $url"
+              curl -fL --retry 5 --retry-delay 10 -C - -o "$f.part" "$url"
+              if echo "${MODEL_SHA256}  $f.part" | sha256sum -c -; then
+                mv "$f.part" "$f"
+              else
+                rm -f "$f.part"
+                echo "sha256 mismatch: removed the partial file" >&2
+                exit 1
+              fi
+          envFrom:
+            - configMapRef:
+                name: llm-model
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              memory: 1Gi
+          volumeMounts:
+            - name: models
+              mountPath: /models
+      containers:
+        - name: llama-server
+          image: ghcr.io/ggml-org/llama.cpp:server-rocm-b12723
+          args:
+            - --model
+            - /models/$(MODEL_FILE)
+            - --alias
+            - qwen3.8-27b
+            - --jinja
+            # No GPU layer count set: --fit (on by default) picks the most layers
+            # that fit in VRAM with a 1 GiB margin, and logs the number it chose.
+            # Pin it with --n-gpu-layers once measured.
+            # Read the model into the process's own memory instead of mmap,
+            # so kubectl top shows real use. (This build replaced --no-mmap.)
+            - --load-mode
+            - none
+            - --ctx-size
+            - "32768"
+            - --cache-type-k
+            - q8_0
+            - --cache-type-v
+            - q8_0
+            - --flash-attn
+            - "on"
+            # Thinking-mode sampling from the model card
+            - --temp
+            - "1.0"
+            - --top-p
+            - "0.95"
+            - --top-k
+            - "20"
+            - --min-p
+            - "0.0"
+            - --presence-penalty
+            - "0.0"
+            - --parallel
+            - "1"
+            - --threads
+            - "12"
+            - --host
+            - 0.0.0.0
+            - --port
+            - "8080"
+            - --api-key-file
+            - /secrets/api-key
+            # Open WebUI is the chat UI; the built-in one isn't needed.
+            - --no-webui
+            # Never add --tools: it lets the model run shell commands in this pod.
+          env:
+            - name: HOME
+              value: /tmp
+          envFrom:
+            - configMapRef:
+                name: llm-model
+          ports:
+            - name: http
+              containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: "8"
+              memory: 10Gi
+            limits:
+              memory: 14Gi
+              amd.com/gpu: 1
+          # /health is public (no API key). Loading ~17 GB takes a while: allow 5 min.
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 5
+          volumeMounts:
+            - name: models
+              mountPath: /models
+              readOnly: true
+            - name: api-key
+              mountPath: /secrets
+              readOnly: true
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: models
+          persistentVolumeClaim:
+            claimName: llm-models
+        - name: api-key
+          secret:
+            secretName: llm-api-key
+        - name: tmp
+          emptyDir:
+            sizeLimit: 1Gi
