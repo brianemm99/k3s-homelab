@@ -22,26 +22,16 @@ spec:
         - protocol: TCP
           port: 8080
 ---
-# Outbound, always on: DNS lookups of in-cluster names only. Because this policy
-# selects the pod, every other outbound connection is blocked. (With no egress
-# policy at all, Cilium would allow everything, so never delete this one.)
-apiVersion: cilium.io/v2
-kind: CiliumNetworkPolicy
+# Outbound: nothing. Listing Egress with no rules blocks every outbound
+# connection, DNS included; llama-server never needs to reach anything.
+# download-policy.yaml adds a temporary exception for the model download.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
-  name: llama-server-egress
+  name: llama-server-deny-egress
 spec:
-  endpointSelector:
+  podSelector:
     matchLabels:
       app: llama-server
-  egress:
-    - toEndpoints:
-        - matchLabels:
-            k8s:io.kubernetes.pod.namespace: kube-system
-            k8s:k8s-app: kube-dns
-      toPorts:
-        - ports:
-            - port: "53"
-              protocol: ANY
-          rules:
-            dns:
-              - matchPattern: "*.cluster.local"
+  policyTypes:
+    - Egress
