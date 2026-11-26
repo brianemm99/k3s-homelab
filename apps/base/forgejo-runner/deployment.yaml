@@ -16,8 +16,6 @@ spec:
         app: forgejo-runner
     spec:
       automountServiceAccountToken: false
-      securityContext:
-        fsGroup: 1000
       containers:
         # Docker daemon that runs the CI job containers.
         - name: docker
