@@ -1,0 +1,47 @@
+# Egress for the runner pod and every CI job it starts (jobs run inside
+# the pod's dind, so their traffic leaves as this pod).
+# Allowed: cluster DNS, Forgejo's HTTP port, and the public internet.
+# Blocked: LAN, cluster addresses, tailnet, link-local.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: forgejo-runner
+spec:
+  podSelector:
+    matchLabels:
+      app: forgejo-runner
+  policyTypes:
+    - Ingress # no ingress rules: nothing connects to the runner
+    - Egress
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - { protocol: UDP, port: 53 }
+        - { protocol: TCP, port: 53 }
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: forgejo
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: forgejo
+      ports:
+        - { protocol: TCP, port: 3000 }
+    - to:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+            except:
+              - 10.0.0.0/8
+              - 172.16.0.0/12
+              - 192.168.0.0/16
+              - 100.64.0.0/10
+              - 169.254.0.0/16
+      ports:
+        - { protocol: TCP, port: 80 }
+        - { protocol: TCP, port: 443 }
