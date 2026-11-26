@@ -8,5 +8,6 @@ resources:
   - n8n
   - ntfy
   - llm
+  - open-webui
   #- audiobookshelf
   #- mealie

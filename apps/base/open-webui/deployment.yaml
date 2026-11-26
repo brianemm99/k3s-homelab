@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: open-webui
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: open-webui
+  template:
+    metadata:
+      labels:
+        app: open-webui
+    spec:
+      automountServiceAccountToken: false
+      enableServiceLinks: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: open-webui
+          image: ghcr.io/open-webui/open-webui:v0.13.5
+          envFrom:
+            - secretRef:
+                name: open-webui-secrets # OPENAI_API_KEY, WEBUI_SECRET_KEY
+          env:
+            # The model
+            - name: OPENAI_API_BASE_URL
+              value: http://llama-server.llm.svc.cluster.local:8080/v1
+            - name: ENABLE_OLLAMA_API
+              value: "false"
+            # No outbound internet: don't try to download or phone home
+            - name: OFFLINE_MODE
+              value: "true"
+            - name: ENABLE_VERSION_UPDATE_CHECK
+              value: "false"
+            - name: ENABLE_COMMUNITY_SHARING
+              value: "false"
+            # The first account can always sign up and becomes admin; nobody after it
+            - name: ENABLE_SIGNUP
+              value: "false"
+            - name: WEBUI_URL
+              value: https://chat.toyger-court.ts.net
+            # llama-server has one slot (--parallel 1): don't spend it on
+            # background tasks. Saved to the database on first start.
+            - name: ENABLE_TITLE_GENERATION
+              value: "false"
+            - name: ENABLE_TAGS_GENERATION
+              value: "false"
+            - name: ENABLE_FOLLOW_UP_GENERATION
+              value: "false"
+            - name: ENABLE_RETRIEVAL_QUERY_GENERATION
+              value: "false"
+            - name: ENABLE_SEARCH_QUERY_GENERATION
+              value: "false"
+            - name: DATA_DIR
+              value: /data
+            - name: STATIC_DIR
+              value: /static
+            - name: HOME
+              value: /tmp
+            - name: PYTHONDONTWRITEBYTECODE
+              value: "1"
+          ports:
+            - name: http
+              containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          resources:
+            requests:
+              cpu: 250m
+              memory: 1Gi
+            limits:
+              memory: 2Gi
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 5
+            failureThreshold: 5
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            - name: static
+              mountPath: /static
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: open-webui-data
+        - name: static
+          emptyDir:
+            sizeLimit: 256Mi
+        - name: tmp
+          emptyDir:
+            sizeLimit: 1Gi
