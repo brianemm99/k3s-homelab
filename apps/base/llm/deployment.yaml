@@ -130,9 +130,9 @@ spec:
           resources:
             requests:
               cpu: "8"
-              memory: 10Gi
+              memory: 4Gi
             limits:
-              memory: 14Gi
+              memory: 8Gi
               amd.com/gpu: 1
           # /health is public (no API key). Loading ~17 GB takes a while: allow 5 min.
           startupProbe:
