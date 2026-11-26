@@ -112,6 +112,7 @@ spec:
             - /secrets/api-key
             # Open WebUI is the chat UI; the built-in one isn't needed.
             - --no-webui
+            - --no-slots
             # Never add --tools: it lets the model run shell commands in this pod.
           env:
             - name: HOME
