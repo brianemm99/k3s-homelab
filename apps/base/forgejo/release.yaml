@@ -127,7 +127,7 @@ spec:
           DEFAULT_KEEP_EMAIL_PRIVATE: true
           DEFAULT_ALLOW_CREATE_ORGANIZATION: false
           ENABLE_NOTIFY_MAIL: false
-          ENABLE_BASIC_AUTENTICATION: false
+          ENABLE_BASIC_AUTHENTICATION: false
 
         service.explore:
           DISABLE_USERS_PAGE: true
