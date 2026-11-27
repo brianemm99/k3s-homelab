@@ -5,7 +5,7 @@ resources:
   - homepage
   - forgejo
   - forgejo-runner
-  - n8n
+  #- n8n
   - ntfy
   - llm
   - open-webui
