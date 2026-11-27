@@ -4,5 +4,5 @@ namespace: n8n
 resources:
   - ../../base/n8n/
   - n8n-secrets.sops.yaml
-  - cloudflare.yaml
-  - cloudflare-secret.yaml
+#  - cloudflare.yaml
+#  - cloudflare-secret.yaml
