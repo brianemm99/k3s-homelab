@@ -46,6 +46,10 @@
     - Claude:
         - icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/claude.png
           href: https://claude.ai/recents
+    - OpenCode:
+        - icon: https://cdn.jsdelivr.net/npm/@lobehub/icons-static-png@latest/light/opencode.png
+          href: https://opencode.ai/docs
+          description: Opencode agent
     - PI:
         - icon: pi-coding-agent.png
           href: https://pi.dev/
@@ -54,10 +58,6 @@
         - icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/hermes-agent.png
           href: https://hermes-agent.nousresearch.com/docs
           description: hermes coding agent
-    - Odysseus AI:
-        - icon: odysseus.png
-          href: https://odysseusai.dev/
-          description: odysseus coding agent
 
 - Coding:
     - Python:
