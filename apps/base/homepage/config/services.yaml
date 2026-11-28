@@ -59,17 +59,13 @@
         icon: github-light.png
         href: https://github.com/brianemm99
         description: github
-    - Codeberg:
-        icon: codeberg.png
-        href: https://codeberg.org/
-        description: codeberg
     - Forgejo Public:
         icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/forgejo.png
         href: https://git.brianemm99.net
         description: Public git instance
     - Forgejo Private:
         icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/git.png
-        href: https://asgard.toyger-court.ts.net/
+        href: https://git.toyger-court.ts.net/
         description: Private Forgejo instance
 
 - Content:
